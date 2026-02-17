@@ -3,7 +3,39 @@
 @{
 }
 <form method ="post" novalidate>
-    <label>Namn:</label>
-    <input type="text" name = "Name"/>
-    <button type ="submit">Skicka</button>
+    <div>
+        <label>Namn</label>
+        <input asp-for="Input.Name" id="name" />
+        <span asp-validation-for="Input.Name"></span>
+    </div>
+ 
+    <div>
+        <label>Ålder</label>
+        <input asp-for="Input.Age" id="age" />
+        <span asp-validation-for="Input.Age"></span>
+    </div>
+ 
+    <button type="submit">Skicka</button>
 </form>
+ 
+@section Scripts {
+<script>
+    document.getElementById("myForm").onsubmit = function () {
+ 
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+ 
+        if (name.trim() === "") {
+            alert("Namn måste fyllas i");
+            return false;
+        }
+ 
+        if (age === "" || isNaN(age) || age < 1 || age > 120) {
+            alert("Ange en giltig ålder");
+            return false;
+        }
+ 
+        return true;
+    }
+</script>
+}
