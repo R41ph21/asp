@@ -7,7 +7,7 @@ namespace WebApp.Pages
     public class TestModel : PageModel
     {
         [BindProperty]
-        public UserInput Input {get; set; }
+        public UserInput Input {get; set; } = new UserInput();
         public void OnGet()
         {
         }

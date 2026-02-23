@@ -2,19 +2,25 @@
 @model WebApp.Pages.TestModel
 @{
 }
-<form method ="post" novalidate>
+<form method ="post" id="myForm" novalidate>
     <div>
         <label>Namn</label>
         <input asp-for="Input.Name" id="name" />
         <span asp-validation-for="Input.Name"></span>
     </div>
- 
+    
     <div>
-        <label>Ålder</label>
-        <input asp-for="Input.Age" id="age" />
-        <span asp-validation-for="Input.Age"></span>
+        <label>Email</label>
+        <input asp-for="Input.Email" id="age" />
+        <span asp-validation-for="Input.Email"></span>
     </div>
- 
+    </p>
+    <div>
+        <label>Password</label>
+        <input asp-for="Input.Password" id="age" />
+        <span asp-validation-for="Input.Password"></span>
+    </div>
+    
     <button type="submit">Skicka</button>
 </form>
  
@@ -23,15 +29,21 @@
     document.getElementById("myForm").onsubmit = function () {
  
         let name = document.getElementById("name").value;
-        let age = document.getElementById("age").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
  
         if (name.trim() === "") {
             alert("Namn måste fyllas i");
             return false;
         }
  
-        if (age === "" || isNaN(age) || age < 1 || age > 120) {
-            alert("Ange en giltig ålder");
+        if (email.trim() === "") {
+            alert("Email måste fyllas i");
+            return false;
+        }
+
+        if (password.trim() === "") {
+            alert("Password måste fyllas i");
             return false;
         }
  

@@ -5,9 +5,11 @@ namespace WebApp.Models;
 public class UserInput
 {
     [Required(ErrorMessage = "Namn är obligatoriskt")]
-    public string Name {get; set;}
+    public string Name {get; set;} = string.Empty;
 
-    [Required(ErrorMessage = "Ålder är obligatoriskt")]
-    [Range(1, 120, ErrorMessage = "Ålder måste bli mellan 1 och 120")]
-    public int Age {get; set;}
+    [Required(ErrorMessage = "Email är obligatoriskt")]
+    public string Email {get; set;} = string.Empty;
+
+    [Required(ErrorMessage = "Password är obligatoriskt")]
+    public string Password {get; set;} = string.Empty;
 }
